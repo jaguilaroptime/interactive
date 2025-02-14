@@ -12,12 +12,9 @@ import { ThemeSwitch } from "./ThemeSwitch";
 
 export default function NavBar() {
   return (
-    <Navbar className="w-full">
+    <Navbar className="w-full bg-transparent" >
       <NavbarBrand>
-        <Link isExternal aria-label="Optime Consulting" href="https://optimeconsulting.com/">
-          <OptimeLogo />
-        </Link>
-        <div className="bg-gradient-to-br from-sky-300 to-indigo-500 bg-clip-text ml-4">
+        <div className="ml-4">
           <p className="text-xl font-semibold text-transparent">
             Interactive Avatar BETA - Optime Consulting
           </p>
@@ -62,7 +59,7 @@ export default function NavBar() {
             <GithubIcon className="text-default-500" />
             SDK
           </Link> */}
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </NavbarItem>
       </NavbarContent>
     </Navbar>

@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from "react";
-
 import {Button} from "@nextui-org/react";
-
 import FormattedText from "@/components/FormattedText";
 
 export default function Home() {

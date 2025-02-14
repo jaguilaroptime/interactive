@@ -3,7 +3,7 @@ export function HeyGenLogo() {
 }
 
 export function OptimeLogo() {
-  return <img src="/optime-logo.svg" className="h-8" alt="Optime Consulting" />;
+  return <img src="/logo_optime.png" width={200}  alt="Optime Consulting" />;
 }
 
 type IconSvgProps = {

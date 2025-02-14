@@ -17,6 +17,7 @@ import {
   Chip,
   Tabs,
   Tab,
+  Link,
 } from "@nextui-org/react";
 import { useEffect, useRef, useState } from "react";
 import { useMemoizedFn, usePrevious } from "ahooks";
@@ -26,14 +27,15 @@ import InteractiveAvatarTextInput from "./InteractiveAvatarTextInput";
 import TestAI from "./TestAI";
 
 import {AVATARS, STT_LANGUAGE_LIST} from "@/app/lib/constants";
+import { OptimeLogo } from "./Icons";
 
 export default function InteractiveAvatar() {
   const [isLoadingSession, setIsLoadingSession] = useState(false);
   const [isLoadingRepeat, setIsLoadingRepeat] = useState(false);
   const [stream, setStream] = useState<MediaStream>();
   const [debug, setDebug] = useState<string>();
-  const [knowledgeId, setKnowledgeId] = useState<string>("");
-  const [avatarId, setAvatarId] = useState<string>("");
+  const [knowledgeId, setKnowledgeId] = useState<string>("396732a6bf8e4d8e96db12658787cc9d");
+  const [avatarId, setAvatarId] = useState<string>("ef08039a41354ed5a20565db899373f3");
   const [language, setLanguage] = useState<string>('en');
 
   const [data, setData] = useState<StartAvatarResponse>();
@@ -213,9 +215,10 @@ export default function InteractiveAvatar() {
   }, [mediaStream, stream]);
 
   return (
+
     <div className="w-full flex flex-col gap-4">
       <Card>
-        <CardBody className="h-[500px] flex flex-col justify-center items-center">
+        <CardBody className="h-[500px] flex flex-col justify-center items-center container-agent">
           {stream ? (
             <div className="h-[500px] w-[900px] justify-center items-center flex rounded-lg overflow-hidden">
               <video
@@ -231,19 +234,19 @@ export default function InteractiveAvatar() {
                 <track kind="captions" />
               </video>
               <div className="flex flex-col gap-2 absolute bottom-3 right-3">
-                <Button
+                {/* <Button
                   className="bg-gradient-to-tr from-indigo-500 to-indigo-300 text-white rounded-lg"
                   size="md"
                   variant="shadow"
-                  onClick={handleInterrupt}
+                  onPress={handleInterrupt}
                 >
                   Interrupt task
-                </Button>
+                </Button> */}
                 <Button
                   className="bg-gradient-to-tr from-indigo-500 to-indigo-300  text-white rounded-lg"
                   size="md"
                   variant="shadow"
-                  onClick={endSession}
+                  onPress={endSession}
                 >
                   End session
                 </Button>
@@ -253,22 +256,24 @@ export default function InteractiveAvatar() {
             <div className="h-full justify-center items-center flex flex-col gap-8 w-[500px] self-center">
               <div className="flex flex-col gap-2 w-full">
                 <p className="text-sm font-medium leading-none">
-                  Custom Knowledge ID (optional)
+                  Knowledge ID
                 </p>
                 <Input
                   placeholder="Enter a custom knowledge ID"
+                  className="input-avatar"
                   value={knowledgeId}
                   onChange={(e) => setKnowledgeId(e.target.value)}
                 />
                 <p className="text-sm font-medium leading-none">
-                  Custom Avatar ID (optional)
+                  Avatar ID
                 </p>
                 <Input
                   placeholder="Enter a custom avatar ID"
                   value={avatarId}
+                  className="input-avatar"
                   onChange={(e) => setAvatarId(e.target.value)}
                 />
-                <Select
+                {/* <Select
                   placeholder="Or select one from these example avatars"
                   size="md"
                   onChange={(e) => {
@@ -283,11 +288,11 @@ export default function InteractiveAvatar() {
                       {avatar.name}
                     </SelectItem>
                   ))}
-                </Select>
+                </Select> */}
                 <Select
                   label="Select language"
                   placeholder="Select language"
-                  className="max-w-xs"
+                  className="w-full"
                   selectedKeys={[language]}
                   onChange={(e) => {
                     setLanguage(e.target.value);
@@ -299,15 +304,14 @@ export default function InteractiveAvatar() {
                     </SelectItem>
                   ))}
                 </Select>
+                
               </div>
-              <Button
-                className="bg-gradient-to-tr from-indigo-500 to-indigo-300 w-full text-white"
-                size="md"
-                variant="shadow"
+              <button
+                className="btn-optime bg-green-hp w-full py-2 transition-all rounded-full hover:translate-y-[-3px] hover:opacity-95"
                 onClick={startSession}
               >
                 Start session
-              </Button>
+              </button>
             </div>
           ) : (
             <Spinner color="default" size="lg" />
@@ -342,26 +346,35 @@ export default function InteractiveAvatar() {
             </div>
           ) : (
             <div className="w-full text-center">
-              <Button
-                isDisabled={!isUserTalking}
-                className="bg-gradient-to-tr from-indigo-500 to-indigo-300 text-white"
-                size="md"
-                variant="shadow"
+              <button
+                disabled={!isUserTalking}
+                className="bg-white py-2 transition-all rounded-md hover:translate-y-[-3px] disabled:pointer-events-none disabled:text-slate-200 px-2"
               >
                 {isUserTalking ? "Listening" : "Voice chat"}
-              </Button>
+              </button>
             </div>
           )}
         </CardFooter>
       </Card>
+
+   
       {/* <Divider />
       <TestAI /> 
       <Divider /> */}
-      <p className="font-mono text-right">
+      {/* <p className="font-mono text-right">
         <span className="font-bold">Console:</span>
         <br />
         {debug}
-      </p>
+      </p> */}
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-md font-light text-transparent mb-0">
+          This avatar has been created exclusively for demo purposes for HPE
+        </p>
+        <Link isExternal aria-label="Optime Consulting" href="https://optimeconsulting.com/">
+          <OptimeLogo />
+        </Link>
+      </div>
     </div>
+    
   );
 }

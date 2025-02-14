@@ -1,9 +1,29 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+main {
+  /* font-family: "Montserrat", serif; */
+  background-image: url('/background.jpg') !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btn-optime {
+  color: #fff;
+}
+input {
+  background-color: transparent;
+}
+.end-3 {
+  inset-inline-end: .75rem;
+}
 li {
   list-style-type: square;
   margin-left: 30px;
   padding: 2px;
+}
+.container-agent {
+  overflow: hidden;
 }
