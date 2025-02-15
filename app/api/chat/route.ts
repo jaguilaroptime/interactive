@@ -9,7 +9,7 @@ const openai = createOpenAI({ apiKey: MY_APP_OPENAI_API_KEY });
 export async function POST(req: Request) {
 
   const  message  = await req.text();
-  const model: any = openai('gpt-4o-mini');
+  const model: any = openai("gpt-4o-mini");
 
   const result = await streamText({
     model: model,
