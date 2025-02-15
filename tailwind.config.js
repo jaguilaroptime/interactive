@@ -8,12 +8,6 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    colors: {
-      'green-optime': '#c7e039',
-      'green-optime-400': '#d0df7c',
-      'green-optime-200': '#d6e195',
-      'green-hp': '#00b388'
-    },
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],

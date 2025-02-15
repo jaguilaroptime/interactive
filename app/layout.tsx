@@ -6,8 +6,6 @@ import { Providers } from "./providers";
 
 import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 import NavBar from "@/components/NavBar";
-import { OptimeLogo } from "@/components/Icons";
-import { Link } from "@nextui-org/react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,11 +19,11 @@ const fontMono = FontMono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Smart Choice - Expert Support",
-    template: `%s - Smart Choice - Expert Support`,
+    default: "HeyGen Interactive Avatar SDK Demo",
+    template: `%s - HeyGen Interactive Avatar SDK Demo`,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/heygen-logo.png",
   },
 };
 
@@ -48,15 +46,10 @@ export default function RootLayout({
       className={`${fontSans.variable} ${fontMono.variable} font-sans`}
     >
       <head />
-      <body className={clsx("min-h-screen  antialiased")}>
+      <body className={clsx("min-h-screen bg-background antialiased")}>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <main className="relative flex  bg-background flex-col h-screen w-screen">
-            {/* <NavBar /> */}
-            <div className="text-center pt-10 mb-4">
-              <p className="text-xl font-semibold text-transparent">
-                <span className="font-bold">Smart Choice -</span> <span className="font-light">Expert Support</span>
-              </p>
-            </div>
+          <main className="relative flex flex-col h-screen w-screen">
+            <NavBar />
             {children}
           </main>
         </Providers>

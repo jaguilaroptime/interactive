@@ -2,10 +2,6 @@ export function HeyGenLogo() {
   return <img src="/heygen-logo.png" className="h-8" alt="HeyGen Logo" />;
 }
 
-export function OptimeLogo() {
-  return <img src="/logo_optime.png" width={200}  alt="Optime Consulting" />;
-}
-
 type IconSvgProps = {
   size?: number;
   width?: number;
