@@ -19,7 +19,7 @@ export default function NavBar() {
         </Link>
         <div className="bg-gradient-to-br from-sky-300 to-indigo-500 bg-clip-text ml-4">
           <p className="text-xl font-semibold text-transparent">
-            HeyGen Interactive Avatar SDK NextJS Demo
+            Interactive Avatar
           </p>
         </div>
       </NavbarBrand>
