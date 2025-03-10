@@ -25,7 +25,7 @@ export default function NavBar() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem className="flex flex-row items-center gap-4">
-          <Link
+          {/* <Link
             isExternal
             color="foreground"
             href="https://labs.heygen.com/interactive-avatar"
@@ -45,7 +45,7 @@ export default function NavBar() {
             href="https://docs.heygen.com/reference/new-session-copy"
           >
             API Docs
-          </Link>
+          </Link> */}
           <Link
             isExternal
             color="foreground"
